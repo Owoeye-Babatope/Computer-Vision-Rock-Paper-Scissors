@@ -1,6 +1,6 @@
 from random import randint
 
-guess_option = ['rock', 'paper', 'sccissors']
+guess_option = ['rock', 'paper', 'scissors']
 
 def get_computer_choice():
     '''
@@ -35,12 +35,20 @@ def get_user_choice():
     return user_guess
 
 
+def get_winner(user, computer):
+    parameter_dict = {"rock": 1, "paper": 2, "scissors": 3}
+    if (parameter_dict[user] < parameter_dict[computer]):
+        return "User"
+    elif (parameter_dict[user] > parameter_dict[computer]):
+        return "Computer"
+    return "Equal: Retry!"
+
 def collect():
     user = get_user_choice()
     computer = get_computer_choice()
+    result = get_winner(user, computer)
     
-    print(f"user: {user} \ncomputer: {computer}")
-    
+    print(f"user: {user} \ncomputer: {computer}\nAnd the winner is {result}")
     
     
     
